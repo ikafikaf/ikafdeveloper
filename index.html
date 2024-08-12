@@ -99,6 +99,77 @@ Have fun creating your portfolio on this template!!! -->
       gtag("config", "UA-122228201-4")
     </script>
     <!-- End of Google Analytics -->
+
+    <style>
+            /* Bottom Navigation Styles */
+      #bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 800px; /* Adjust as needed */
+        background-color: #333; /* Background color */
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+        z-index: 1000; /* Ensure it is above other content */
+        margin-bottom: 20px;
+        border-radius: 25px;
+      }
+
+      .bottom-nav-item {
+        color: #fff; /* Text color */
+        text-decoration: none;
+        font-size: 16px; /* Font size */
+        padding: 10px 20px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .bottom-nav-item:hover {
+       /* Background color on hover */
+        /* color: #ffeb3b; */
+        scale: 1.3;
+      }
+
+      #code-section {
+            background-color: white;
+            color: lime;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 25vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            
+        }
+        #code-display {
+            white-space: pre;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .line {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid lime;
+            width: 0;
+            animation: typing 6s steps(30, end) forwards, blink 1s step-end infinite alternate;
+        }
+        
+        
+    </style>
   </head>
   <body>
     <!-- Hero Section -->
@@ -110,7 +181,7 @@ Have fun creating your portfolio on this template!!! -->
           I'm Full Stack Developer.
         </h1>
         <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#projects">Projects</a>
+          <a class="cta-btn cta-btn--hero" href="/projects">Projects</a>
         </p>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
@@ -148,6 +219,11 @@ Have fun creating your portfolio on this template!!! -->
       </div>
     </section>
     <!-- /END About Section -->
+
+<!--     
+    <section id="code-section">
+      <pre id="code-display"></pre>
+    </section> -->
 
     <!--Projects Section-->
     <section id="projects">
@@ -379,9 +455,8 @@ Have fun creating your portfolio on this template!!! -->
       </div>
     </section>
     <!-- End Projects Section -->
-
-    <!-- SKills Section -->
-    <section id="skills">
+     <!-- SKills Section -->
+     <section id="skills">
       <div  class="container">
         <h2 class="section-title">Skills</h2>
         
@@ -407,6 +482,9 @@ Have fun creating your portfolio on this template!!! -->
       </div>
     </section>
     <!-- /END Skills Section -->
+    
+
+   
 
     <!-- Technology i used -->
       <!-- <section id="tech">
@@ -570,58 +648,107 @@ Have fun creating your portfolio on this template!!! -->
       </div>
     </footer>
     <!-- END Footer Section -->
-    <div>
-      
-    </div>
+
+    <!-- Bottom Navigation -->
+    <div id="nav-container"></div>
+
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear()
     </script>
     <script src="./javascript/vanilla-tilt.min.js"></script>
     <script type="text/javascript" src="./javascript/valtilt.js"></script>
   
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          const xmlComponent = document.querySelector('anime-xml-component');
-          const src = xmlComponent.getAttribute('src');
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const codeDisplay = document.getElementById('code-display');
+      const codeLines = [
+          "const hackSystem=()=>{let e=fetchData(),t=e.map(e=>2*e.value).filter(e=>e>10);return{exploit:async n=>{for(let a of t)await asyncExploit(n,a)},initialize:()=>{console.log('System initialized');},coverTracks:()=>{setTimeout(()=>{process.stdout.write('\\x1Bc');},1e3);}};};",
+          "async function main(){const e=hackSystem();await e.initialize();for(;;){const t=await scanForVulnerabilities();t&&(await e.exploit(t),await gainAccess(t)),await e.coverTracks();}}",
+          "main().catch(e=>{console.error('Critical error:',e);process.exit(1);});setInterval(()=>{const e=Math.random().toString(36).substring(2,15);console.log(`Injecting payload: ${e}`);},500);"
+      ];
 
-          fetch(src)
-            .then(response => response.text())
-            .then(data => {
-              const parser = new DOMParser();
-              const xmlDoc = parser.parseFromString(data, "application/xml");
-              
-              // Get user information
-              const userName = xmlDoc.getElementsByTagName("user_name")[0].textContent;
-              const totalAnime = xmlDoc.getElementsByTagName("user_total_anime")[0].textContent;
+        function createLine(text, index) {
+            const line = document.createElement('span');
+            line.className = 'line';
+            line.style.animationDelay = `${index * 5}s`;
+            
+            for (let char of text) {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char;
+                span.setAttribute('data-char', char);
+                line.appendChild(span);
+            }
+            
+            codeDisplay.appendChild(line);
+            codeDisplay.appendChild(document.createTextNode('\n'));
+        }
 
-              // Get anime details
-              const anime = xmlDoc.getElementsByTagName("anime")[0];
-              const title = anime.getElementsByTagName("series_title")[0].textContent;
-              const score = anime.getElementsByTagName("my_score")[0].textContent;
-              const status = anime.getElementsByTagName("my_status")[0].textContent;
-              const episodes = anime.getElementsByTagName("series_episodes")[0].textContent;
+        codeLines.forEach(createLine);
 
-              // Create the HTML structure
-              let animeListHTML = `
-                <div class="user-info">
-                  <h3>User: ${userName}</h3>
-                  <p>Total Anime: ${totalAnime}</p>
-                </div>
-                <div class="anime-item">
-                  <h3>${title}</h3>
-                  <p>Score: ${score}</p>
-                  <p>Status: ${status}</p>
-                  <p>Episodes: ${episodes}</p>
-                </div>
-              `;
+        function repeatAnimation() {
+            codeDisplay.innerHTML = '';
+            codeLines.forEach(createLine);
+            setTimeout(repeatAnimation, codeLines.length * 500 + 15000);
+        }
 
-              // Insert the HTML into the page
-              document.getElementById("anime-list").innerHTML = animeListHTML;
-            })
-            .catch(error => {
-              console.error("Error fetching or parsing the XML file:", error);
-            });
-        });
-      </script>
+        repeatAnimation();
+    });
+      
+
+      // load the navigation menu
+      document.addEventListener("DOMContentLoaded", function() {
+        fetch('nav.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('nav-container').innerHTML = data;
+          });
+      });
+
+      // load the anime list
+      document.addEventListener("DOMContentLoaded", function() {
+        const xmlComponent = document.querySelector('anime-xml-component');
+        const src = xmlComponent.getAttribute('src');
+
+        fetch(src)
+          .then(response => response.text())
+          .then(data => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "application/xml");
+            
+            // Get user information
+            const userName = xmlDoc.getElementsByTagName("user_name")[0].textContent;
+            const totalAnime = xmlDoc.getElementsByTagName("user_total_anime")[0].textContent;
+
+            // Get anime details
+            const anime = xmlDoc.getElementsByTagName("anime")[0];
+            const title = anime.getElementsByTagName("series_title")[0].textContent;
+            const score = anime.getElementsByTagName("my_score")[0].textContent;
+            const status = anime.getElementsByTagName("my_status")[0].textContent;
+            const episodes = anime.getElementsByTagName("series_episodes")[0].textContent;
+
+            // Create the HTML structure
+            let animeListHTML = `
+              <div class="user-info">
+                <h3>User: ${userName}</h3>
+                <p>Total Anime: ${totalAnime}</p>
+              </div>
+              <div class="anime-item">
+                <h3>${title}</h3>
+                <p>Score: ${score}</p>
+                <p>Status: ${status}</p>
+                <p>Episodes: ${episodes}</p>
+              </div>
+            `;
+
+            // Insert the HTML into the page
+            document.getElementById("anime-list").innerHTML = animeListHTML;
+          })
+          .catch(error => {
+            console.error("Error fetching or parsing the XML file:", error);
+          });
+      });
+    </script>
   </body>
 </html>

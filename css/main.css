@@ -457,9 +457,23 @@ section .row span {
   color: #fff;
   height: 100%;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   padding-bottom: 10%;
 }
+
+#skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0676d3;
+  background-image: linear-gradient(135deg, #0676d3 0%, red 100%);
+  transform: rotate(180deg);
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
 @media (max-width: 75em) {
   #skills {
     height: 100%;

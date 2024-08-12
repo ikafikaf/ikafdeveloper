@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Title: add your Portfolio websites's title here -->
+    <title>Ikaf Ramadhan | Web Developer</title>
+
+    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
+    <meta name="keywords" content="[username], [name], skill" />
+
+    <!-- Improve your SEO by adding a small descrption of you -->
+    <meta name="description" content="Ikaf Ramadhan | Web Developer" />
+
+    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
+    <link rel="icon" type="image/png" href="../assets/devfolio-logo.png" />
+
+    <!-- Add your primary-theme color for the value of content -->
+    <meta name="theme-color" content="#36d1dc" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <!-- Fill content with the URL of this portfolio you'll host -->
+    <meta property="og:url" content="https://devfolio.js.org/" />
+    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
+    <meta property="og:title" content="Ikaf Ramadhan | Web Developer" />
+    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
+    <meta property="og:description" content="Made using DevFolio Template" />
+    <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
+      so that a thumbnail image of your portfolio is shown while shared on other platform -->
+    <meta
+      property="og:image"
+      content="https://devfolio.js.org/assets/devfolio.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <!-- Again fill content attr with the URL of this portfolio you'll host -->
+    <meta property="twitter:url" content="https://devfolio.js.org" />
+    <!-- Recommended to use the same text used within <title> element -->
+    <meta property="twitter:title" content="Ikaf Ramadhan | Web Developer" />
+    <!-- short description that shows up while your portfolio is shared -->
+    <meta
+      property="twitter:description"
+      content="Made using DevFolio Template"
+    />
+    <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
+    <meta
+      property="twitter:image"
+      content="https://anilseervi.vercel.app/assets/devfolio.png"
+    />
+
+    <!-- link tags -->
+    <link rel="preload" as="style" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <!-- FontAwesome Icons link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script defer src="../javascript/scrollreveal.min.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="../javascript/scrollveal.js"
+    ></script>
+
+    <!-- Remove Google Analytics once you have your portfolio website set-up -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
+
+      gtag("config", "UA-122228201-4")
+    </script>
+    <!-- End of Google Analytics -->
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+         /* Bottom Navigation Styles */
+         #bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            background-color: #333; /* Background color */
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+            z-index: 1000; /* Ensure it is above other content */
+            margin-bottom: 20px;
+            border-radius: 25px;
+        }
+
+        .bottom-nav-item {
+            color: #fff; /* Text color */
+            text-decoration: none;
+            font-size: 16px; /* Font size */
+            padding: 10px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .bottom-nav-item:hover {
+        /* Background color on hover */
+            /* color: #ffeb3b; */
+            scale: 1.3;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3em;
+            color: #333;
+        }
+
+        .anime-wrapper {
+            overflow-x: auto;
+        }
+
+        #anime-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-direction: row;
+        }
+
+        #anime-table th, #anime-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        #anime-table th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .anime-image {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .anime-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .anime-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            height: 185px;
+        }
+
+        .anime-item__image {
+            width: 35%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            
+        }
+
+        .anime-item__info {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .anime-item__info__score {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .anime-item__info__score p {
+            background-color: #2e51a2; 
+            border-radius: 5px; 
+            padding: 2px 5px 2px 5px;
+            color: white;
+        }
+
+        .anime-item__info h3 {
+            margin: 0;
+            font-size: 1.5em;
+            justify-content: center;
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .anime-item p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #watching-container,
+        #completed-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            #anime-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+       
+
+    </style>
+</head>
+<body>
+    <section id="anime">
+        <div class="container">
+            <h2 class="section-title">Anime</h2>
+            <p style="font-size: 12px; margin-bottom: 10px;">This is my personal anime dashboard, with all the animes I've watched, am currently watching and plan to watch with their scores.</p>
+            <div class="anime-wrapper">
+                <!-- <div class="anime-wrapper__image">
+                    <img src="./assets/anime.png" alt="Anime" />
+                </div> -->
+                <!-- Container where the anime list will be injected -->
+                <div id="anime-list">
+                    <!-- Anime list will be loaded here from the XML file -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <anime-xml-component src="../assets/animelist.xml"></anime-xml-component>
+
+     <!-- END Footer Section -->
+     <div id="nav-container"></div>
+</body>
+<script>
+    // load the navigation menu
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('../nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-container').innerHTML = data;
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const xmlComponent = document.querySelector('anime-xml-component');
+        const src = xmlComponent.getAttribute('src');
+
+        fetch(src)
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data, "application/xml");
+            
+            // Get user information
+            const userName = xmlDoc.getElementsByTagName("user_name")[0].textContent;
+            const totalAnime = xmlDoc.getElementsByTagName("user_total_anime")[0].textContent;
+
+            // Get all anime details
+            const animeNodes = xmlDoc.getElementsByTagName("anime");
+
+        // Create the HTML structure with user info and containers for Watching and Completed
+        let animeListHTML = `
+            <div class="user-info">
+                <h3>User: ${userName}</h3>
+                <p>Total Anime Watched: ${totalAnime}</p>
+            </div>
+            <h1 style="margin-top: 20px;">Watching</h1>
+            <div id="watching-container"></div>
+            <h1 style="margin-top: 20px;">Completed</h1>
+            <div id="completed-container"></div>
+        `;
+
+        document.getElementById("anime-list").innerHTML = animeListHTML;
+
+        // Loop through each anime node and add a table row
+        for (let i = 0; i < animeNodes.length; i++) {
+            const anime = animeNodes[i];
+            const title = anime.getElementsByTagName("series_title")[0].textContent;
+            const score = anime.getElementsByTagName("my_score")[0].textContent;
+            const status = anime.getElementsByTagName("my_status")[0].textContent;
+            const episodes = anime.getElementsByTagName("series_episodes")[0].textContent;
+
+            // Check if series_image tag exists
+            let imageUrl = "";
+            const imageTag = anime.getElementsByTagName("series_image")[0];
+            if (imageTag) {
+                imageUrl = imageTag.textContent;
+            }
+
+            // Construct the anime item HTML
+            let animeItemHTML = `
+                <div class="anime-container">
+                    <div class="anime-item">
+                        <div class="anime-item__image">
+                            <img src="${imageUrl}" alt="${title}" class="anime-image" />
+                        </div>
+                        <div class="anime-item__info">
+                            <h3>${title}</h3>
+                            <p>Episodes: ${episodes}</p>
+                            <p>Status: ${status}</p>
+                            <div class="anime-item__info__score">
+                                <p>Score:</p>
+                                <span style="font-weight: bold;">${score}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                // Append the anime item to the appropriate container based on its status
+                if (status === "Watching") {
+                        document.getElementById("watching-container").innerHTML += animeItemHTML;
+                    } else if (status === "Completed") {
+                        document.getElementById("completed-container").innerHTML += animeItemHTML;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching or parsing the XML file:", error);
+            });
+    });
+</script>
+  </body>
+</script>
+</html>
