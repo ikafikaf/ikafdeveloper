@@ -175,8 +175,24 @@ a:hover {
   text-decoration: none;
   box-shadow: none;
 }
+.cta-btn--contact {
+  border-radius: 0;
+  color: #000;
+  border: 2px solid #000;
+}
+.cta-btn--contact::after {
+  background: #000;
+}
+.cta-btn--contact:hover {
+  color: #13ec42;
+  text-decoration: none;
+  box-shadow: none;
+}
 @media (max-width: 37.5em) {
   .cta-btn--resume:hover {
+    color: #fff;
+  }
+  .cta-btn--contact:hover {
     color: #fff;
   }
 }
@@ -396,13 +412,17 @@ section .row span {
   }
 }
 #contact {
-  background-image: linear-gradient(135deg, #0676d3 0%, red 100%);
+  /* background-image: linear-gradient(135deg, #0676d3 0%, red 100%);
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   padding: 15rem 0 10rem 0;
   margin-top: -15rem;
   margin-bottom: -1px;
-  color: #fff;
+  color: #fff; */
+  background-color: #e5e5e5;
+  color: #272341;
+  margin-top: -15rem;
+  padding-top: 15rem;
 }
 @media (max-width: 75em) {
   #contact {
@@ -430,6 +450,47 @@ section .row span {
     font-size: 2rem;
   }
 }
+/* Skills Section */
+#skills {
+  background-color: #0676d3;
+  background-image: linear-gradient(135deg, #0676d3 0%, red 100%);
+  color: #fff;
+  height: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  padding-bottom: 10%;
+}
+@media (max-width: 75em) {
+  #skills {
+    height: 100%;
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+}
+#skills .skills-wrapper {
+  margin-bottom: 15rem;
+}
+@media (max-width: 37.5em) {
+  #skills .skills-wrapper {
+    margin-bottom: 0rem;
+  }
+}
+#skills .skills-wrapper__image {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: 75em) {
+  #skills .skills-wrapper__image {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 37.5em) {
+  #skills .skills-wrapper__image {
+    padding-bottom: 4rem;
+  }
+}
+
 #hero {
   min-height: 100vh;
   height: 100vh;
@@ -655,5 +716,43 @@ section .row span {
     border: 1px solid #d2d2d2;
     margin-bottom: 3.2rem;
     transform: none;
+  }
+}
+
+/* Technology i used */
+#tech {
+  background-color: #e5e5e5;
+  color: #272341;
+  margin-top: -15rem;
+  padding-top: 15rem;
+}
+@media (max-width: 75em) {
+  #tech {
+    height: 100%;
+    -webkit-clip-path: none;
+    clip-path: none;
+  }
+}
+#tech .tech-wrapper {
+  margin-bottom: 15rem;
+}
+@media (max-width: 37.5em) {
+  #tech .tech-wrapper {
+    margin-bottom: 0rem;
+  }
+}
+#tech .tech-wrapper__image {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: 75em) {
+  #tech .tech-wrapper__image {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 37.5em) {
+  #tech .tech-wrapper__image {
+    padding-bottom: 4rem;
   }
 }
