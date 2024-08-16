@@ -569,23 +569,6 @@ Have fun creating your portfolio on this template!!! -->
     </section>
     <!-- END Contact Section -->
 
-    <!-- Anime Section -->
-    <section id="anime">
-      <div class="container">
-        <h2 class="section-title">Anime</h2>
-        <div class="anime-wrapper">
-          <div class="anime-wrapper__image">
-            <img src="./assets/anime.png" alt="Anime" />
-          </div>
-          <!-- Container where the anime list will be injected -->
-          <div id="anime-list">
-            <!-- Anime list will be loaded here from the XML file -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <anime-xml-component src="./assets/animelist_1723451244_-_18786454.xml"></anime-xml-component>
-    <!-- /END Anime Section -->
     
     <!-- Footer Section -->
     <footer class="footer">
@@ -706,49 +689,7 @@ Have fun creating your portfolio on this template!!! -->
           });
       });
 
-      // load the anime list
-      document.addEventListener("DOMContentLoaded", function() {
-        const xmlComponent = document.querySelector('anime-xml-component');
-        const src = xmlComponent.getAttribute('src');
-
-        fetch(src)
-          .then(response => response.text())
-          .then(data => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data, "application/xml");
-            
-            // Get user information
-            const userName = xmlDoc.getElementsByTagName("user_name")[0].textContent;
-            const totalAnime = xmlDoc.getElementsByTagName("user_total_anime")[0].textContent;
-
-            // Get anime details
-            const anime = xmlDoc.getElementsByTagName("anime")[0];
-            const title = anime.getElementsByTagName("series_title")[0].textContent;
-            const score = anime.getElementsByTagName("my_score")[0].textContent;
-            const status = anime.getElementsByTagName("my_status")[0].textContent;
-            const episodes = anime.getElementsByTagName("series_episodes")[0].textContent;
-
-            // Create the HTML structure
-            let animeListHTML = `
-              <div class="user-info">
-                <h3>User: ${userName}</h3>
-                <p>Total Anime: ${totalAnime}</p>
-              </div>
-              <div class="anime-item">
-                <h3>${title}</h3>
-                <p>Score: ${score}</p>
-                <p>Status: ${status}</p>
-                <p>Episodes: ${episodes}</p>
-              </div>
-            `;
-
-            // Insert the HTML into the page
-            document.getElementById("anime-list").innerHTML = animeListHTML;
-          })
-          .catch(error => {
-            console.error("Error fetching or parsing the XML file:", error);
-          });
-      });
+      
     </script>
   </body>
 </html>

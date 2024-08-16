@@ -19,6 +19,11 @@
     <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
     <link rel="icon" type="image/png" href="../assets/devfolio-logo.png" />
 
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+
     <!-- Add your primary-theme color for the value of content -->
     <meta name="theme-color" content="#36d1dc" />
 
@@ -246,6 +251,125 @@
             gap: 10px;
         }
 
+        .user-info {
+            display: flex;
+            flex-direction: row;
+           margin-left: auto;
+           margin-right: auto;
+           margin-top: 10px;
+            padding: 5px;
+            gap: 10px;
+            height: 100%;
+            
+        }
+        .user-info__text {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .avatar {
+          border-radius: 10px;
+        }
+        
+        .steam-avatar{
+            width: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1px;
+        
+        }
+
+        .hobbies-title{
+            margin-top: 30px;
+            font-size: 2em;
+            text-decoration: underline;
+            background-image: linear-gradient(135deg, #0676d3 0%, red 100%);
+            color: white;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .game-info {
+          display: flex;
+          flex-direction: row;
+          margin-left: auto;
+            margin-right: auto;
+          margin-top: 10px;
+          padding: 5px;
+          gap: 10px;
+        
+          width: 80%;
+          border: 2px solid #000;
+          border-radius: 10px;
+        }
+
+        .game-avatar{
+            width: 250px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1px;
+            border-radius: 10px;
+        
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .swiper-wrapper {
+            display: flex; /* Ensure slides are in a row */
+        }
+
+      .swiper-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #completed-container {
+           
+            margin-top: 5px;
+        }
+
+        .weapon-img {
+            width: 450px;
+            margin-left: auto;
+            margin-right:auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
         @media (max-width: 768px) {
             #anime-table {
                 display: block;
@@ -259,10 +383,44 @@
     </style>
 </head>
 <body>
+    <h1 class="hobbies-title">These my hobbies page. All the datas are fetched from APIs.</h1>
+    <section id="steam">
+        <div class="container">
+          <h2 class="section-title">Games</h2>
+          <p style="font-size: 14px;">Live stats from 
+            <a style="font-style: italic; justify-content: center;" href="https://steamcommunity.com/dev">
+                <img class="steam-avatar" src="../assets/steam.png" alt="Steam" />
+                Steam Web API</a>
+        </p>
+
+          <div class="steam-wrapper">
+            <!-- <div class="steam-wrapper__image">
+              <img src="../assets/steam.png" alt="Steam" />
+            </div> -->
+            <!-- Container where the anime list will be injected -->
+            <div id="steam-list"></div>
+             
+            </div>
+            <!-- i want make caraousel from these games -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div id="steam-games-cs2" class="swiper-slide"></div>
+                    <div id="steam-games-dota2" class="swiper-slide"></div>
+                </div>
+                
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+          
+          </div>
+        </div>
+      </section>
     <section id="anime">
         <div class="container">
             <h2 class="section-title">Anime</h2>
-            <p style="font-size: 12px; margin-bottom: 10px;">This is my personal anime dashboard, with all the animes I've watched, am currently watching and plan to watch with their scores.</p>
+            <p style="font-size: 14px; margin-bottom: 10px;">This is my personal anime dashboard, with all the animes I've watched, am currently watching and plan to watch with their scores.</p>
             <div class="anime-wrapper">
                 <!-- <div class="anime-wrapper__image">
                     <img src="./assets/anime.png" alt="Anime" />
@@ -276,6 +434,8 @@
     </section>
     <anime-xml-component src="../assets/animelist.xml"></anime-xml-component>
 
+    
+
      <!-- END Footer Section -->
      <div id="nav-container"></div>
 </body>
@@ -288,6 +448,125 @@
             document.getElementById('nav-container').innerHTML = data;
         });
     });
+
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('http://localhost:3000/steam-api')
+            .then(response => response.json())
+            .then(data => {
+            const name = data.response.players[0].personaname;
+            console.log(data);
+            let steamListHTML = `
+                <div style="width: 200px;" class="user-info">
+                    <img src="${data.response.players[0].avatarmedium}" alt="${name}" class="avatar" />
+                    <div class="user-info__text">
+                        <p>Nickname:</p>
+                        <p style="font-weight: bold;">${name}</p>
+                    </div>
+                </div>
+                <div id="completed-container"></div>
+              `;
+              document.getElementById("steam-list").innerHTML = steamListHTML;
+              
+            })
+            
+
+            .catch(error => {
+            console.error("Error fetching", error);
+            });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1, // Show one slide at a time
+            spaceBetween: 4, // Optional: Add space between slides
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true, // Optional: Loop through slides
+        });
+
+    // CS2 API
+    fetch('http://localhost:3000/steam-cs2-api')
+        .then(response => response.json())
+        .then(data => {
+            console.log('cs',data);
+            const total_kills = data.playerstats.stats[0].value;
+            const total_wins = data.playerstats.stats[5].value;
+            const total_mvps = data.playerstats.stats[96].value;
+            const total_planted_bomb = data.playerstats.stats[3].value;
+            const total_defused_bomb = data.playerstats.stats[4].value;
+            const stats = data.playerstats.stats;
+
+            // Finding the weapon with the most kills
+            const mostKills = stats.reduce((max, stat) => {
+                if (stat.name.startsWith('total_kills_')) {
+                    return stat.value > max.value ? stat : max;
+                }
+                return max;
+            }, {name: '', value: 0});
+             // Remove "total_kills_" prefix to get just the weapon name
+             const weaponName = mostKills.name.replace('total_kills_', '');
+
+            console.log(`The weapon with the most kills is ${weaponName} with ${mostKills.value} kills.`);
+            
+            let steamGamesHTML = `
+                <div class="game-info">
+                    <img class="game-avatar" src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/library_600x900_2x.jpg?t=1696269591" alt="CS2" />
+                    <div style="display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row; ">
+                            <p style="width: 300px; text-align: left;">Total Kills</p>
+                            <p style="font-weight: bold;">:${total_kills}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row; ">
+                            <p style="width: 300px; text-align: left;">Total Wins</p>
+                            <p style="font-weight: bold;">:${total_wins}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row;">
+                            <p style="width: 300px; text-align: left;">Total MVPs</p>
+                            <p style="font-weight: bold;">:${total_mvps}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row;">
+                            <p style="width: 300px; text-align: left;">Total Planted Bomb</p>
+                            <p style="font-weight: bold;">:${total_planted_bomb}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: row;">
+                            <p style="width: 300px; text-align: left;">Total Defused Bomb</p>
+                            <p style="font-weight: bold;">:${total_defused_bomb}</p>
+                        </div>
+                         <div style="display: flex; flex-direction: row;">
+                            <p style="width: 300px; text-align: left;">The weapon with the most kills is</p>
+                            <p style="font-weight: bold;">:<span style="text-transform: uppercase; ">${weaponName}</span> with ${mostKills.value} kills.</p>
+                        </div>
+                        <img class="weapon-img" src="../assets/cs2-awp2.png" alt="weapon" />
+                        
+                    </div>
+                </div>
+            `;
+            document.getElementById("steam-games-cs2").innerHTML = steamGamesHTML;
+        })
+        .catch(error => console.error("Error fetching", error));
+
+    // Dota 2 API
+    fetch('http://localhost:3000/steam-cs2-api') // Assuming the correct endpoint for Dota 2
+        .then(response => response.json())
+        .then(data => {
+            const total_kills = data.playerstats.stats[0].value;
+            let steamGamesHTML = `
+                <div class="game-info">
+                    <img class="game-avatar" src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/library_600x900_2x.jpg?t=1720638399" alt="Dota 2" />
+                    <p>Total Kills:</p>
+                    <p style="font-weight: bold;">${total_kills}</p>
+                </div>
+            `;
+            document.getElementById("steam-games-dota2").innerHTML = steamGamesHTML;
+        })
+        .catch(error => console.error("Error fetching", error));
+});
+
+
 
     document.addEventListener("DOMContentLoaded", function() {
         const xmlComponent = document.querySelector('anime-xml-component');
@@ -308,8 +587,7 @@
 
         // Create the HTML structure with user info and containers for Watching and Completed
         let animeListHTML = `
-            <div class="user-info">
-                <h3>User: ${userName}</h3>
+            <div style="width: 225px;" class="user-info">
                 <p>Total Anime Watched: ${totalAnime}</p>
             </div>
             <h1 style="margin-top: 20px;">Watching</h1>
