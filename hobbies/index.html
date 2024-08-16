@@ -386,7 +386,9 @@
     <h1 class="hobbies-title">These my hobbies page. All the datas are fetched from APIs.</h1>
     <section id="steam">
         <div class="container">
-          <h2 class="section-title">Games</h2>
+          <h2 class="section-title">
+            <i class="fa-solid fa-gamepad"></i>
+            Games</h2>
           <p style="font-size: 14px;">Live stats from 
             <a style="font-style: italic; justify-content: center;" href="https://steamcommunity.com/dev">
                 <img class="steam-avatar" src="../assets/steam.png" alt="Steam" />
@@ -419,8 +421,11 @@
       </section>
     <section id="anime">
         <div class="container">
-            <h2 class="section-title">Anime</h2>
-            <p style="font-size: 14px; margin-bottom: 10px;">This is my personal anime dashboard, with all the animes I've watched, am currently watching and plan to watch with their scores.</p>
+            <h2 class="section-title">
+                <i class="fa-solid fa-film"></i>
+                Anime</h2>
+            <p style="font-size: 14px; margin-bottom: 10px;">This is my personal anime section, with all the animes I've watched, am currently watching and plan to watch with their scores.</p>
+            <p style="font-size: 14px; margin-bottom: 10px;">I got the data from <a href="https://myanimelist.net/">My Anime List API</a>.</p>
             <div class="anime-wrapper">
                 <!-- <div class="anime-wrapper__image">
                     <img src="./assets/anime.png" alt="Anime" />
@@ -557,8 +562,7 @@
             let steamGamesHTML = `
                 <div class="game-info">
                     <img class="game-avatar" src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/570/library_600x900_2x.jpg?t=1720638399" alt="Dota 2" />
-                    <p>Total Kills:</p>
-                    <p style="font-weight: bold;">${total_kills}</p>
+                    <p style="font-weight: bold; font-size: 18px; justify-content: center; align-items:center; display:flex; margin: auto;">Coming Soon</p>
                 </div>
             `;
             document.getElementById("steam-games-dota2").innerHTML = steamGamesHTML;
