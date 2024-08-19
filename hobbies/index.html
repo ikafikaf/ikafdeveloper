@@ -180,7 +180,7 @@
 
         .anime-container {
             display: flex;
-            flex-direction: row;
+            flex-direction: wrap;
             justify-content: center;
             align-items: center;
             padding: 10px;
@@ -189,6 +189,7 @@
 
         .anime-item {
             display: flex;
+       
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -247,7 +248,7 @@
         #watching-container,
         #completed-container {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             gap: 10px;
         }
 
@@ -369,12 +370,21 @@
             margin-bottom: 10px;
         }
 
+        .yt-frame {
+            width: 560px;
+            height: 315px;
+        }
+
 
         @media (max-width: 768px) {
             #anime-table {
                 display: block;
                 overflow-x: auto;
                 white-space: nowrap;
+            }
+            .yt-frame {
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -418,7 +428,8 @@
           
           </div>
         </div>
-      </section>
+    </section>
+    
     <section id="anime">
         <div class="container">
             <h2 class="section-title">
@@ -438,8 +449,44 @@
         </div>
     </section>
     <anime-xml-component src="../assets/animelist.xml"></anime-xml-component>
-
+    <!-- youtube section -->
+    <section id="youtube">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fa-solid fa-music"></i>
+                Music</h2>
+            <p style="font-size: 14px; margin-bottom: 10px;">I also produce music. I write and arrange my own music, and I also play in a band called Promnite.</p>
+            <p style="font-size: 14px; margin-bottom: 10px;">and this is one of the songs that I wrote.</p>
+            <div class="youtube-wrapper">
+                
+                 <div class="youtube-wrapper__info">
+                    <div class="youtube-wrapper__info__video">
+                        <div class="youtube-wrapper__info__video__title">
+                            <h3 style="margin-bottom: 10px;">
+                                <iframe class="yt-frame" src="https://www.youtube.com/embed/ipKtn_nZlVA?si=pzotk5J6GblpZW8h" 
+                                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                            </iframe>
+                            </h3>
+                            <p style="font-size: 14px; margin-bottom: 10px;">
+                                <span style="color: #fff; font-size: 14px; margin-top: 10px; margin-bottom: 10px;">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    Published on: 
+                                </span>
+                                <span style="color: #fff; font-size: 14px; margin-top: 10px; margin-bottom: 10px;">
+                                    <i class="fa-solid fa-clock"></i>
+                                    Published on: 
+                                </span>
+                                
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
+    <div id="footer-container"></div>
 
      <!-- END Footer Section -->
      <div id="nav-container"></div>
@@ -454,9 +501,18 @@
         });
     });
 
+    // load the footer component
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('../footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+
     
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('http://localhost:3000/steam-api')
+        fetch('https://ikafikaf.github.io/steam-api')
             .then(response => response.json())
             .then(data => {
             const name = data.response.players[0].personaname;
@@ -494,7 +550,7 @@
         });
 
     // CS2 API
-    fetch('http://localhost:3000/steam-cs2-api')
+    fetch('https://ikafikaf.github.io/steam-cs2-api')
         .then(response => response.json())
         .then(data => {
             console.log('cs',data);
@@ -555,7 +611,7 @@
         .catch(error => console.error("Error fetching", error));
 
     // Dota 2 API
-    fetch('http://localhost:3000/steam-cs2-api') // Assuming the correct endpoint for Dota 2
+    fetch('https://ikafikaf.github.io/steam-cs2-api') // Assuming the correct endpoint for Dota 2
         .then(response => response.json())
         .then(data => {
             const total_kills = data.playerstats.stats[0].value;

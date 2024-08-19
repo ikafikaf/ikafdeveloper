@@ -9,7 +9,7 @@ app.get('/steam-api', async (req, res) => {
   try {
     const response = await axios.get('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/', {
       params: {
-        key: '500A82442F796EF7801E0E55C13CA38F',
+        key: 'AE136C4F3025116395DCDAEB588F24FB',
         steamids: '76561198081052571'
       }
     });
@@ -25,7 +25,7 @@ app.get('/steam-cs2-api', async (req, res) => {
     const response = await axios.get('http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/', {
       params: {
         appid: 730,
-        key: '500A82442F796EF7801E0E55C13CA38F',
+        key: 'AE136C4F3025116395DCDAEB588F24FB',
         steamid: '76561198081052571',
       }
     });

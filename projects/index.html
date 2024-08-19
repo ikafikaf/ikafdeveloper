@@ -359,73 +359,13 @@
 
    
     <!-- Footer Section -->
-    <footer class="footer">
-      <div class="container">
-        <a href="#projects" class="back-to-top" aria-label="go back to top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
-        <div class="social-links">
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-          >
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="codepen"
-          >
-            <i class="fa-brands fa-codepen"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
-          >
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-          >
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-        <hr />
-        <p class="footer__text">
-          &copy; <span id="year"></span> - Template by
-          <a
-            href="https://github.com/AnilSeervi"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Anil Seervi</a
-          >. <br />Made with &hearts;
-        </p>
-      </div>
-    </footer>
+    <div id="footer-container"></div>
     <!-- END Footer Section -->
     <div id="nav-container"></div>
 
     <div>
     </div>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear()
-    </script>
+  
     <script src="../javascript/vanilla-tilt.min.js"></script>
     <script type="text/javascript" src="../javascript/valtilt.js"></script>
   
@@ -438,6 +378,15 @@
             document.getElementById('nav-container').innerHTML = data;
         });
     });
+
+      // load the footer component
+      document.addEventListener("DOMContentLoaded", function() {
+        fetch('../footer.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+          });
+      });
 
        
     </script>
