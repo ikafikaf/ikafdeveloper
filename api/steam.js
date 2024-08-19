@@ -1,3 +1,5 @@
+// api/steam.js
+
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -19,7 +21,6 @@ app.get('/steam-api', async (req, res) => {
   }
 });
 
-// get game data from steam api
 app.get('/steam-cs2-api', async (req, res) => {
   try {
     const response = await axios.get('http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/', {
@@ -35,6 +36,4 @@ app.get('/steam-cs2-api', async (req, res) => {
   }
 });
 
-// const PORT = 3000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 module.exports = app;
