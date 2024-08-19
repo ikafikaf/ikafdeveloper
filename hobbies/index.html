@@ -512,7 +512,7 @@
 
     
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('https://ikafikaf.github.io/steam-api')
+        fetch('https://ikaf-portfolio-9esexc4lj-ikafikafs-projects.vercel.app/steam-api')
             .then(response => response.json())
             .then(data => {
             const name = data.response.players[0].personaname;
@@ -550,7 +550,7 @@
         });
 
     // CS2 API
-    fetch('https://ikafikaf.github.io/steam-cs2-api')
+    fetch('https://ikaf-portfolio-9esexc4lj-ikafikafs-projects.vercel.app/steam-cs2-api')
         .then(response => response.json())
         .then(data => {
             console.log('cs',data);
@@ -611,7 +611,7 @@
         .catch(error => console.error("Error fetching", error));
 
     // Dota 2 API
-    fetch('https://ikafikaf.github.io/steam-cs2-api') // Assuming the correct endpoint for Dota 2
+    fetch('https://ikaf-portfolio-9esexc4lj-ikafikafs-projects.vercel.app/steam-cs2-api') // Assuming the correct endpoint for Dota 2
         .then(response => response.json())
         .then(data => {
             const total_kills = data.playerstats.stats[0].value;
