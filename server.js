@@ -35,6 +35,5 @@ app.get('/steam-cs2-api', async (req, res) => {
   }
 });
 
-// const PORT = 3000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-module.exports = app;
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

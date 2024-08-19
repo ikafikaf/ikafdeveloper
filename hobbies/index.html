@@ -377,14 +377,47 @@
 
 
         @media (max-width: 768px) {
+            .hobbies-title{
+                width: 100%;
+            }
+            .container{
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .yt-frame{
+                width: 350px;
+                height: 200px;
+            }
             #anime-table {
                 display: block;
                 overflow-x: auto;
                 white-space: nowrap;
             }
-            .yt-frame {
+           
+            #bottom-nav {
+                position: fixed;
+                bottom: 0;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: space-around;
                 width: 100%;
-                height: auto;
+                max-width: 350px; /* Adjust as needed */
+                background-color: #333; /* Background color */
+                padding: 10px 0;
+            
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+                z-index: 1000; /* Ensure it is above other content */
+                margin-bottom: 20px;
+                border-radius: 25px;
+            }
+
+            .bottom-nav-item {
+                color: #fff; /* Text color */
+                text-decoration: none;
+                font-size: 12px; /* Font size */
+                padding: 10px 15px;
+                transition: background-color 0.3s, color 0.3s;
             }
         }
 

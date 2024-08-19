@@ -120,42 +120,34 @@
         /* color: #ffeb3b; */
         scale: 1.3;
       }
-
-      #code-section {
-            background-color: white;
-            color: lime;
-            padding: 20px;
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
-            height: 25vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            
-        }
-        #code-display {
-            white-space: pre;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-        .line {
-            display: block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid lime;
-            width: 0;
-            animation: typing 6s steps(30, end) forwards, blink 1s step-end infinite alternate;
-        }
         
+        @media screen and (max-width: 768px) {
+          #bottom-nav {
+            position: fixed;
+            bottom: 0;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 350px; /* Adjust as needed */
+            background-color: #333; /* Background color */
+            padding: 10px 0;
+          
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+            z-index: 1000; /* Ensure it is above other content */
+            margin-bottom: 20px;
+            border-radius: 25px;
+          }
+
+          .bottom-nav-item {
+            color: #fff; /* Text color */
+            text-decoration: none;
+            font-size: 12px; /* Font size */
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+          }
+
+        }
         
     </style>
   </head>
@@ -448,10 +440,12 @@
       <div  class="container">
         <h2 class="section-title">Skills</h2>
         
-          <div style="margin-bottom: 20px" class="skills-wrapper__image">
+          <div style="margin-bottom: 20px;" class="skills-wrapper__image">
             <p align="center">
-              <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=laravel,php,js,html,css,tailwind,bootstrap,vue,nuxtjs,mysql,wordpress" />
+              <a style="gap: 10px;" href="https://skillicons.dev">
+                <img src="https://skillicons.dev/icons?i=laravel,php,js,html" />
+                <img src="https://skillicons.dev/icons?i=css,tailwind,bootstrap,vue" />
+                <img src="https://skillicons.dev/icons?i=nuxtjs,mysql,wordpress" />
               </a>
             </p>
           </div>
@@ -461,7 +455,8 @@
           <div style="margin-bottom: 20px" class="skills-wrapper__image">
             <p align="center">
               <a href="https://skillicons.dev">
-                <img src="https://skillicons.dev/icons?i=apple,github,gitlab,postman,vscode,windows,linux,ubuntu,figma" />
+                <img src="https://skillicons.dev/icons?i=apple,github,gitlab,postman" />
+                <img src="https://skillicons.dev/icons?i=windows,linux,ubuntu,figma" />
               </a>
             </p>
           </div>
@@ -473,75 +468,6 @@
     
 
    
-
-    <!-- Technology i used -->
-      <!-- <section id="tech">
-        <div style="margin-bottom: 20px;" class="container ">
-          <div class="tech-wrapper">
-
-         
-          <h2 class="section-title">Technology i used</h2>
-          
-            <div class="tech-wrapper__image">
-              <p align="center">
-                <a href="https://www.figma.com/">
-                  <img src="https://img.shields.io/badge/figma-black?style=for-the-badge&logo=figma&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/photoshop.html">
-                  <img src="https://img.shields.io/badge/Photoshop-black?style=for-the-badge&logo=adobe-photoshop&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/illustrator.html">
-                  <img src="https://img.shields.io/badge/Illustrator-black?style=for-the-badge&logo=adobe-illustrator&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/xd.html">
-                  <img src="https://img.shields.io/badge/XD-black?style=for-the-badge&logo=adobe-xd&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/premiere.html">
-                  <img src="https://img.shields.io/badge/Premiere-black?style=for-the-badge&logo=adobe-premiere&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/aftereffects.html">
-                  <img src="https://img.shields.io/badge/After Effects-black?style=for-the-badge&logo=adobe-aftereffects&logoColor=white" />
-                </a>                
-                <a href="https://www.adobe.com/products/photoshop.html">
-                  <img src="https://img.shields.io/badge/Photoshop-black?style=for-the-badge&logo=adobe-photoshop&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/illustrator.html">
-                  <img src="https://img.shields.io/badge/Illustrator-black?style=for-the-badge&logo=adobe-illustrator&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/xd.html">
-                  <img src="https://img.shields.io/badge/XD-black?style=for-the-badge&logo=adobe-xd&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/premiere.html">
-                  <img src="https://img.shields.io/badge/Premiere-black?style=for-the-badge&logo=adobe-premiere&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/aftereffects.html">
-                  <img src="https://img.shields.io/badge/After Effects-black?style=for-the-badge&logo=adobe-aftereffects&logoColor=white" />
-                </a>                
-                <a href="https://www.adobe.com/products/photoshop.html">
-                  <img src="https://img.shields.io/badge/Photoshop-black?style=for-the-badge&logo=adobe-photoshop&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/illustrator.html">
-                  <img src="https://img.shields.io/badge/Illustrator-black?style=for-the-badge&logo=adobe-illustrator&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/xd.html">
-                  <img src="https://img.shields.io/badge/XD-black?style=for-the-badge&logo=adobe-xd&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/premiere.html">
-                  <img src="https://img.shields.io/badge/Premiere-black?style=for-the-badge&logo=adobe-premiere&logoColor=white" />
-                </a>
-                <a href="https://www.adobe.com/products/aftereffects.html">
-                  <img src="https://img.shields.io/badge/After Effects-black?style=for-the-badge&logo=adobe-aftereffects&logoColor=white" />
-                </a>                
-                <a href="https://www.adobe.com/products/photoshop.html">
-                  <img src="https://img.shields.io/badge/Photoshop-black?style=for-the-badge&logo=adobe-photoshop&logoColor=white" />
-                </a>
-              </p>
-            </div>
-          </div>
-        
-      </div>
-    </section> -->
-    <!-- /END Technology i used -->
 
     <!-- Contact Section -->
     <section id="contact">

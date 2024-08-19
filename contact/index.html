@@ -349,6 +349,8 @@
             padding-right: 10px;
             padding-bottom: 10px;
             padding-left: 10px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact_us .mainImg {
@@ -356,6 +358,33 @@
             object-fit: cover;
             height: 100%;
             padding: 15px;
+        }
+        @media screen and (max-width: 768px) {
+          #bottom-nav {
+            position: fixed;
+            bottom: 0;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 350px; /* Adjust as needed */
+            background-color: #333; /* Background color */
+            padding: 10px 0;
+          
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+            z-index: 1000; /* Ensure it is above other content */
+            margin-bottom: 20px;
+            border-radius: 25px;
+          }
+
+          .bottom-nav-item {
+            color: #fff; /* Text color */
+            text-decoration: none;
+            font-size: 12px; /* Font size */
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+          }
+
         }
     }
     </style>
