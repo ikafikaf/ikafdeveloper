@@ -1,15 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/steam.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "api/steam.js"
-    }
+    { "src": "/api/steam-api", "dest": "/api/steam-api.js" },
+    { "src": "/api/steam-cs2-api", "dest": "/api/steam-cs2-api.js" }
   ]
 }
